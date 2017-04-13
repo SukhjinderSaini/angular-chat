@@ -7,7 +7,7 @@ app.filter('trim', function () {
         return value.replace(/^\s+|\s+$/g, ''); // you could use .trim, but it's not going to work in IE<9
     };
 });
-app.controller('myCtrl', function($scope, $http, $timeout) {
+app.controller('myCtrl', function($scope,trim, $http, $timeout) {
 	$scope.messageCounter = 0;
 	$scope.ai = [];
 	$scope.messages = [];
