@@ -1,0 +1,32 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Sukhjinder Singh Chat Code HTML</title>
+  <meta name="description" content="Simple Chat By Sukhjinder Singh">
+  <meta name="author" content="Sukhjinder">
+  <link rel="stylesheet" href="app/css/style.css">
+</head>
+
+<body ng-app="myApp">
+  
+    <main ng-controller="myCtrl">
+	
+		<div id="Chat">
+			<span ng-click="toggleChat();" ng-show="!showChat"><h1>Click Here to Maximize Chat!</h1></span>
+			<span ng-click="toggleChat();" ng-show="showChat" style="float:right;color:#000;padding-right:5px;"><h1>Close</h1></span>
+			<div id="inner" ng-show="showChat">
+			<div ng-repeat="message in messages track by $index"><div class="message opacque {{$index % 2 === 0 ? 'message1':'message2'}}">{{message}}</div><div class="curvedarrow opacque {{$index%2==0 ? 'curvedarrowG':'curvedarrowR'}}"></div></div>
+			
+			<div id="typeMessage"><textarea ng-model="messageText"></textarea><input type="button" ng-click="sendMessage()" value="Send" /></div>
+			</div>
+		</div>
+	
+    </main>
+  
+  <script src="app/js/angular/angular.min.js"></script>
+  <script src="app/js/app.js"></script>
+</body>
+</html>
