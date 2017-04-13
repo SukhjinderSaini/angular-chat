@@ -1,13 +1,5 @@
 var app = angular.module('myApp', []);
-app.filter('trim', function () {
-    return function(value) {
-        if(!angular.isString(value)) {
-            return value;
-        }  
-        return value.replace(/^\s+|\s+$/g, ''); // you could use .trim, but it's not going to work in IE<9
-    };
-});
-app.controller('myCtrl', function($scope,trim, $http, $timeout) {
+app.controller('myCtrl', function($scope, $http, $timeout) {
 	$scope.messageCounter = 0;
 	$scope.ai = [];
 	$scope.messages = [];
@@ -26,7 +18,6 @@ app.controller('myCtrl', function($scope,trim, $http, $timeout) {
     });
 	
 	$scope.sendMessage = function(){
-			$scope.messageText = $scope.messageText | trim;
 			if($scope.messageText !="" || $scope.messageText != " "){
 				$scope.messages.push($scope.messageText);
 				$scope.messageText = "";
